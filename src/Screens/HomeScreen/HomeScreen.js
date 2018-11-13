@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, TouchableHighlight, View, Text} from "react-native";
+import {StyleSheet, TouchableHighlight, View, Text, Image} from "react-native";
 import {theme} from "../../theme";
 
 const styles = StyleSheet.create({
@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
         color: theme.colors.white,
         fontSize: 18,
         fontWeight: "bold"
+    },
+    container:{
+        alignItems: "center",
     }
 });
 
@@ -33,7 +36,11 @@ export default class HomeScreen extends React.PureComponent {
     };
 
     handlePress = id => () => {
-        console.log(id, "pressed");
+        if (id == 0 ){
+         this.props.navigation.navigate('SentScreen')
+        }else {
+        this.props.navigation.navigate('ReceivedScreen')
+        }
     };
 
     render() {
@@ -44,8 +51,12 @@ export default class HomeScreen extends React.PureComponent {
                     onPress={this.handlePress(0)}
                     underlayColor={theme.colors.white}
                 >
-                    <View style={styles.button}>
-                        <Text style={styles.buttonText}>Danke !</Text>
+
+                    <View style={styles.container}>
+                        <Image
+                          style={{width: 300, height: 210,}}
+                          source={require('../../../assets/icons/danke.png')}
+                        />
                     </View>
                 </TouchableHighlight>
                 <TouchableHighlight
@@ -53,8 +64,11 @@ export default class HomeScreen extends React.PureComponent {
                     onPress={this.handlePress(1)}
                     underlayColor={theme.colors.white}
                 >
-                    <View style={styles.button}>
-                        <Text style={styles.buttonText}>Danke ?</Text>
+                    <View style={styles.container}>
+                        <Image
+                          style={{width: 300, height: 210,}}
+                          source={require('../../../assets/icons/bekommen.png')}
+                        />
                     </View>
                 </TouchableHighlight>
             </View>

@@ -1,6 +1,6 @@
 import React from "react";
 import {createDrawerNavigator, createStackNavigator, createMaterialTopTabNavigator} from "react-navigation";
-import {StyleSheet, View, Text, TouchableHighlight} from "react-native";
+import {StyleSheet, View, Text, TouchableHighlight, Image} from "react-native";
 import HomeScreen from "./src/Screens/HomeScreen/HomeScreen";
 import {theme} from "./src/theme";
 import {SentScreen} from "./src/Screens/SentScreen/SentScreen";
@@ -51,7 +51,7 @@ const drawer = createDrawerNavigator({
     Profile: ProfileScreen,
     Logout: LogoutScreen
 }, {
-    initialRouteName: "ThankYouCards",
+    initialRouteName: "Home",
     contentOptions: {
         activeTintColor: theme.colors.red
     }
@@ -74,7 +74,12 @@ const RootStack = createStackNavigator({
                         >
                             <SvgUri width={24} height={24} source={require("./assets/menu.svg")}/>
                         </TouchableHighlight>
-                        <Text style={styles.headerText}>happy</Text>
+                         <View style={styles.container}>
+                         <Image
+                          style={{width: 120, height: 50, top:30}}
+                          source={require('./assets/icons/logo.png')}
+                        />
+                        </View>
                         <View/>
                     </View>
             }),
@@ -101,5 +106,8 @@ const styles = StyleSheet.create({
 },
     touchable: {
         paddingLeft: theme.spacing.unit * 3
+    },
+    container:{
+        height:100
     }
 });
