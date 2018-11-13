@@ -1,6 +1,7 @@
 import React from "react";
 import {StyleSheet, TouchableHighlight, View, Text, Image} from "react-native";
 import {theme} from "../../theme";
+import {requestCameraPermission} from "../../util";
 
 const styles = StyleSheet.create({
     root: {
