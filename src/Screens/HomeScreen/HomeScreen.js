@@ -1,6 +1,7 @@
 import React from "react";
 import {StyleSheet, TouchableHighlight, View, Text} from "react-native";
 import {theme} from "../../theme";
+import {requestCameraPermission} from "../../util";
 
 const styles = StyleSheet.create({
     root: {
@@ -33,7 +34,9 @@ export default class HomeScreen extends React.PureComponent {
     };
 
     handlePress = id => () => {
-        console.log(id, "pressed");
+        requestCameraPermission().then(result => {
+            alert(result);
+        });
     };
 
     render() {

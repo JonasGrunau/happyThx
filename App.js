@@ -51,7 +51,7 @@ const drawer = createDrawerNavigator({
     Profile: ProfileScreen,
     Logout: LogoutScreen
 }, {
-    initialRouteName: "ThankYouCards",
+    initialRouteName: "Home",
     contentOptions: {
         activeTintColor: theme.colors.red
     }
